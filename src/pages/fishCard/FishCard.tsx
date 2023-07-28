@@ -49,7 +49,7 @@ const FishCard = ({ data }: FishCardProps) => {
             <Typography variant="h4">Price-cj: {fish["price-cj"]} </Typography>
             <Typography>Catch Phrase: {fish["catch-phrase"]}</Typography>
             <Typography>Museum Phrase: {fish["museum-phrase"]}</Typography>
-            {/* <Stack direction={"row"} alignItems={"center"} spacing={2}>
+            <Stack direction={"row"} alignItems={"center"} spacing={2}>
               <Autocomplete
                 disablePortal
                 id="combo-box-demo"
@@ -68,7 +68,7 @@ const FishCard = ({ data }: FishCardProps) => {
               >
                 {transletedWord}
               </Typography>
-            </Stack> */}
+            </Stack>
           </Stack>
         </Stack>
       )}
