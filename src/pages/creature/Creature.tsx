@@ -1,11 +1,4 @@
-import {
-  Avatar,
-  Box,
-  CircularProgress,
-  Paper,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Avatar, CircularProgress, Stack, Typography } from "@mui/material";
 import { useEffect } from "react";
 import {
   getFishError,
@@ -41,8 +34,11 @@ const columns: GridColDef[] = [
     headerName: "Name",
     width: 150,
     renderCell: (params) => {
-      return params.row['file-name'][0].toUpperCase() + params.row['file-name'].slice(1);
-    }
+      return (
+        params.row["file-name"][0].toUpperCase() +
+        params.row["file-name"].slice(1)
+      );
+    },
   },
   {
     field: "price",
@@ -56,43 +52,26 @@ const columns: GridColDef[] = [
     headerName: "Phrase",
     width: 200,
   },
-  // {
-  //   field: "producer",
-  //   type: "string",
-  //   headerName: "Producer",
-  //   width: 200,
-  // },
-  // {
-  //   field: "createdAt",
-  //   type: "string",
-  //   headerName: "Created at",
-  //   width: 200,
-  // },
-  // {
-  //   field: "inStock",
-  //   headerName: "In Stock",
-  //   width: 150,
-  //   type: "boolean",
-  // },
 ];
 
-const Fish = () => {
+type Props = {
+  name: string;
+  creatureType: string;
+};
+
+const Creature: React.FC<Props> = ({ name, creatureType }) => {
   const fish = useAppSelector(selectAllFish);
   const fishStatus = useAppSelector(getFishStatus);
   const fishError = useAppSelector(getFishError);
-  console.log(fish);
 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (fishStatus === "idle") {
-      dispatch(getAllFish());
-    }
-  }, [dispatch, fishStatus]);
+    dispatch(getAllFish(creatureType));
+  }, [creatureType, dispatch]);
 
   let content;
   if (fishStatus === "loading") {
-    console.log("loading");
     content = (
       <Stack justifyContent={"center"} alignItems={"center"} flexGrow={1}>
         <CircularProgress />
@@ -114,10 +93,10 @@ const Fish = () => {
 
   return (
     <Stack justifyContent={"center"} alignItems={"center"} flexGrow={1}>
-      <Typography variant="h3">Fish</Typography>
+      <Typography variant="h3">{name}</Typography>
       {content}
     </Stack>
   );
 };
 
-export default Fish;
+export default Creature;
