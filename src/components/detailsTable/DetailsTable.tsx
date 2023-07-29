@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
-import { Availability } from '../../pages/fish/type';
+import { Availability } from '../../pages/creature/type';
 
 type DetailsProps = {
   availability: Availability; 
