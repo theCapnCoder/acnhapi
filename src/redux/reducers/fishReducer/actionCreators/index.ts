@@ -1,0 +1,1 @@
+export {getAllFish} from './getAllFish'
