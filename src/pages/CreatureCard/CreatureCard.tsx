@@ -14,10 +14,11 @@ import { ArrowBack, Scale } from "@mui/icons-material";
 import DetailsComponent from "../../components/detailsTable/DetailsTable";
 
 interface CreatureCardProps {
+  creatureType: string;
   data?: Fish;
 }
 
-const CratureCard = ({ data }: CreatureCardProps) => {
+const CratureCard = ({creatureType,  data }: CreatureCardProps) => {
   const [fish, setFish] = React.useState<Fish | null>(null);
   const param = useParams();
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ const CratureCard = ({ data }: CreatureCardProps) => {
 
   useEffect(() => {
     if (fish === null) {
-      axios.get(`https://acnhapi.com/v1/fish/${param.id}`).then((res) => {
+      axios.get(`https://acnhapi.com/v1/${creatureType}/${param.id}`).then((res) => {
         setFish(res.data);
         console.log(res.data);
       });

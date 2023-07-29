@@ -27,8 +27,8 @@ export const menu: Menu[] = [
       },
       {
         id: 2,
-        title: "seaCreatures",
-        url: "/seaCreatures",
+        title: "sea",
+        url: "/sea",
         icon: <Coronavirus />,
       },
       {

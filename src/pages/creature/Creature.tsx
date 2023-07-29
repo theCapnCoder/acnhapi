@@ -80,7 +80,11 @@ const Creature: React.FC<Props> = ({ name, creatureType }) => {
   } else if (fishStatus === "success") {
     content = (
       <Stack justifyContent={"center"} alignItems={"center"} flexGrow={1}>
-        <DataTable slug="fish" columns={columns} rows={Object.values(fish)} />
+        <DataTable
+          slug={creatureType}
+          columns={columns}
+          rows={Object.values(fish)}
+        />
       </Stack>
     );
   } else if (fishStatus === "failed") {
