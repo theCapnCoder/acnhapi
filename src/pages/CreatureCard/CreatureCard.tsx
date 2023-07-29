@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Fish } from "../fish/type";
+import { Fish } from "../creature/type";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import {
@@ -13,11 +13,11 @@ import {
 import { ArrowBack, Scale } from "@mui/icons-material";
 import DetailsComponent from "../../components/detailsTable/DetailsTable";
 
-interface FishCardProps {
+interface CreatureCardProps {
   data?: Fish;
 }
 
-const FishCard = ({ data }: FishCardProps) => {
+const CratureCard = ({ data }: CreatureCardProps) => {
   const [fish, setFish] = React.useState<Fish | null>(null);
   const param = useParams();
   const navigate = useNavigate();
@@ -99,4 +99,4 @@ const FishCard = ({ data }: FishCardProps) => {
   );
 };
 
-export default FishCard;
+export default CratureCard;
