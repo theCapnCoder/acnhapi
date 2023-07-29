@@ -1,9 +1,16 @@
 import React, { useEffect } from "react";
 import { Fish } from "../fish/type";
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import { Autocomplete, Box, Stack, TextField, Typography } from "@mui/material";
-import { Scale } from "@mui/icons-material";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  Autocomplete,
+  Box,
+  Fab,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
+import { ArrowBack, Scale } from "@mui/icons-material";
 import DetailsComponent from "../../components/detailsTable/DetailsTable";
 
 interface FishCardProps {
@@ -13,6 +20,7 @@ interface FishCardProps {
 const FishCard = ({ data }: FishCardProps) => {
   const [fish, setFish] = React.useState<Fish | null>(null);
   const param = useParams();
+  const navigate = useNavigate();
 
   const [transletedWord, setTransletedWord] = React.useState("");
 
@@ -78,6 +86,15 @@ const FishCard = ({ data }: FishCardProps) => {
           <DetailsComponent availability={fish.availability} />
         </Box>
       )}
+
+      <Fab
+        color="primary"
+        aria-label="Back"
+        onClick={() => navigate(-1)}
+        sx={{ position: "fixed", bottom: 30, right: 30 }}
+      >
+        <ArrowBack />
+      </Fab>
     </Box>
   );
 };
