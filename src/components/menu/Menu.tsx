@@ -1,4 +1,5 @@
 import {
+  Box,
   BoxProps,
   List,
   ListItemButton,
@@ -24,7 +25,7 @@ const listStyle: BoxProps["sx"] = {
 
 export const Menu = () => {
   return (
-    <>
+    <Box sx={{ minWidth: 160 }}>
       {menu.map(({ id, title, listItems }) => (
         <List
           key={id}
@@ -55,6 +56,6 @@ export const Menu = () => {
           ))}
         </List>
       ))}
-    </>
+    </Box>
   );
 };
