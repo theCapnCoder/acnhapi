@@ -1,1 +1,1 @@
-export {getAllFish} from './getAllFish'
+export { getAllFish } from './getAllFish'

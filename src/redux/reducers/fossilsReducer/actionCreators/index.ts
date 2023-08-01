@@ -1,0 +1,1 @@
+export { getAllFossils } from './getAllFossils'

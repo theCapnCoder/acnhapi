@@ -1,4 +1,4 @@
-import { DeleteForever, DriveFileRenameOutline, Info } from "@mui/icons-material";
+import { Info } from "@mui/icons-material";
 import { IconButton, Stack } from "@mui/material";
 import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
@@ -10,10 +10,16 @@ type Props = {
 };
 
 export const DataTable = (props: Props) => {
-  const handleDelete = (id: number) => {
-    // delete item
 
-    console.log(id + " has been deleted");
+  const getNameParam = (slug: string, params: any) => {
+    const map: { [key: string]: string } = {
+      'fish': params.row.id,
+      'sea': params.row.id,
+      'bugs': params.row.id,
+      'fossils': params.row['file-name']
+    }
+
+    return map[slug];
   };
 
   const actionColumn: GridColDef = {
@@ -24,21 +30,13 @@ export const DataTable = (props: Props) => {
       return (
         <Stack direction="row">
           <Link
-            to={`/${props.slug}/${params.row.id}`}
+            to={`/${props.slug}/${getNameParam(props.slug, params)}`}
             style={{ textDecoration: "none" }}
           >
             <IconButton>
               <Info htmlColor="lightblue" />
             </IconButton>
           </Link>
-          {/* <div
-            className="deleteButton"
-            onClick={() => handleDelete(params.row.id)}
-          >
-            <IconButton>
-              <DeleteForever htmlColor="purple" />
-            </IconButton>
-          </div> */}
         </Stack>
       );
     },
