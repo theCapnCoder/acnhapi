@@ -1,4 +1,17 @@
-import { SetMeal, Coronavirus, PestControl, Air, HolidayVillage, CropOriginal, LibraryMusic, MusicNote, ColorLens, SpatialAudio, BarChart, Description } from "@mui/icons-material";
+import {
+  SetMeal,
+  Coronavirus,
+  PestControl,
+  Air,
+  HolidayVillage,
+  CropOriginal,
+  LibraryMusic,
+  MusicNote,
+  ColorLens,
+  SpatialAudio,
+  BarChart,
+  Description,
+} from "@mui/icons-material";
 import Art from "../pages/art/Art";
 
 type ListItem = {
@@ -17,7 +30,7 @@ type Menu = {
 export const menu: Menu[] = [
   {
     id: 1,
-    title: "main",
+    title: "First Group",
     listItems: [
       {
         id: 1,
@@ -37,12 +50,24 @@ export const menu: Menu[] = [
         url: "/bugs",
         icon: <PestControl />,
       },
+    ],
+  },
+  {
+    id: 2,
+    title: "Second Group",
+    listItems: [
       {
         id: 4,
         title: "Fossils",
         url: "/fossils",
         icon: <Air />,
       },
+    ],
+  },
+  {
+    id: 3,
+    title: "Third Group",
+    listItems: [
       {
         id: 5,
         title: "Villagers",
