@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
-import { Fossils } from "./type";
+import { Fossil } from "./type";
 import { getAllFossils } from "./actionCreators/getAllFossils";
 
 type InitialState = {
-  fossils: { [fossilName: string]: Fossils };
+  fossils: { [fossilName: string]: Fossil };
   status: 'loading' | "success" | 'failed',
   error: string | undefined,
 }

@@ -1,4 +1,4 @@
-export type Fossils = {
+export type Fossil = {
   id?: string;
   "file-name": string;
   name: {
